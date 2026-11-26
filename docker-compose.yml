@@ -1,0 +1,45 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: absensi_kcic_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=absensi_kcic
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=secret
+      - APP_TIMEZONE=Asia/Jakarta
+    depends_on:
+      - postgres
+    networks:
+      - absensi_network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: absensi_kcic_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: absensi_kcic
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - absensi_network
+
+volumes:
+  postgres_data:
+
+networks:
+  absensi_network:
+    driver: bridge

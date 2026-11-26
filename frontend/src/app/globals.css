@@ -1,0 +1,77 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --kcic-red: #D32F2F;
+  --kcic-dark: #1E293B;
+  --kcic-gold: #F59E0B;
+}
+
+body {
+  background-color: #F8FAFC;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1E293B;
+  min-height: 100vh;
+}
+
+.mobile-card {
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-kcic-primary {
+  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-kcic-primary:hover, .btn-kcic-primary:focus {
+  background: linear-gradient(135deg, #BE123C 0%, #9F1239 100%);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-kcic-primary:disabled {
+  background: #CBD5E1;
+  color: #64748B;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.camera-preview-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.camera-overlay-watermark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.85) 100%);
+  color: #fff;
+  padding: 16px 14px 12px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.face-guide-box {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 55%;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 100px;
+  pointer-events: none;
+}
